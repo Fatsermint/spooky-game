@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bytgpmmpqviya"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vy62n"]
+load_path = "res://.godot/imported/OfficeCeiling001.png-ceee28833c593673f3140aa11c573de9.s3tc.ctex"
+
+[resource]
+albedo_texture = SubResource("CompressedTexture2D_vy62n")
+metallic = 1.0
+roughness_texture_channel = 1
+ao_enabled = true
+ao_texture_channel = 2
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
