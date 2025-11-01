@@ -15,7 +15,7 @@ var t_bob = 0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	
 func _unhandled_input(event: InputEvent) -> void:
 			if event is InputEventMouseMotion:
 				head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -58,10 +58,36 @@ func _headbob(time) -> Vector3:
 var obj
 
 @onready var ray: RayCast3D = $Node3D/RayCast3D
+@onready var keys_count: Label = $"../KeysCount"
+@onready var area: Area3D = $DoorFaculty/Area3D
+@onready var animation: AnimationPlayer = $"../Label/AnimationPlayer"
+@onready var label: Label = $"../Label"
 
 var keys = 0
-var keysNeeded = 2
+var keysNeeded = 3
+var complete = false
 func _process(delta):
+	if keys == 0:
+		keys_count.text = "0/" + str(keysNeeded)
+		if not label.text == "Don't Let That Zombie Get Close To You":
+			animation.play("text")
+			label.text = "Don't Let That Zombie Get Close To You"
+	if keys == 1:
+		complete = true
+		if not label.text == "WOW! You Already Found One? Keep Going!":
+			label.text = "WOW! You Already Found One? Keep Going!"
+			animation.play("text")
+		
+	if keys == 2:
+		if not label.text == "Only One Key Left To Find!":
+			label.text = "Only One Key Left To Find!"
+			animation.play("text")
+		
+	if keys == 3 and complete == false:
+		if not label.text == "Now Head To Door Where You Started From":
+			label.text = "Now Head To Door Where You Started From"
+			animation.play("text")
+
 	if Input.is_action_just_pressed("interract"):
 		print("1")
 		if ray.is_colliding():
@@ -71,5 +97,14 @@ func _process(delta):
 			if obj.get_parent().is_in_group("keys"):
 				obj.get_parent().queue_free()
 				keys += 1
+				keys_count.text = str(keys) +"/" + str(keysNeeded)
 	if keys == keysNeeded:
-		print("You Won!")
+		complete = true
+
+
+func _on_door(body: Node3D) -> void:
+	if complete == true:
+		print("you won")
+		if not label.text == "You Won!":
+			label.text = "You Won!"
+			animation.play("text")

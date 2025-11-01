@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://5j8rpmfohre3"]
+[gd_scene load_steps=17 format=3 uid="uid://5j8rpmfohre3"]
 
 [ext_resource type="PackedScene" uid="uid://gkx6eyn8xf7l" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dhlg0r3eh516c" path="res://Scenes/map.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b3trnpvlm66br" path="res://Scenes/enemy.tscn" id="3_8gbba"]
 [ext_resource type="VideoStream" uid="uid://d0rj8q4rmlbdm" path="res://1031.ogv" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://cl26gx7jbl20n" path="res://Assets/Cursor (2).png" id="5_kry3j"]
+[ext_resource type="Texture2D" uid="uid://drawa5s34cyia" path="res://key_small1.png" id="6_6bp64"]
+[ext_resource type="FontFile" uid="uid://dlnmeytfjcqhk" path="res://Creepster-Regular.ttf" id="7_344ge"]
+[ext_resource type="PackedScene" uid="uid://ch6gax67crc3n" path="res://DoorFaculty.fbx" id="8_344ge"]
 
 [sub_resource type="Environment" id="Environment_8gbba"]
 background_energy_multiplier = 0.01
@@ -15,6 +18,132 @@ vertices = PackedVector3Array(-18.276, 0.5, -0.17737389, -12.525999, 0.5, -0.177
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(4, 2, 5), PackedInt32Array(5, 2, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(15, 12, 5), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 5), PackedInt32Array(12, 4, 5), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(21, 18, 11), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 11), PackedInt32Array(18, 10, 11), PackedInt32Array(26, 25, 24), PackedInt32Array(0, 1, 27), PackedInt32Array(28, 26, 24), PackedInt32Array(27, 29, 0), PackedInt32Array(0, 29, 28), PackedInt32Array(0, 28, 24), PackedInt32Array(0, 24, 30), PackedInt32Array(29, 31, 28), PackedInt32Array(34, 33, 32), PackedInt32Array(6, 7, 35), PackedInt32Array(36, 34, 32), PackedInt32Array(35, 37, 6), PackedInt32Array(6, 37, 36), PackedInt32Array(6, 36, 32), PackedInt32Array(6, 32, 38), PackedInt32Array(37, 39, 36), PackedInt32Array(41, 13, 40), PackedInt32Array(40, 13, 14), PackedInt32Array(44, 43, 42), PackedInt32Array(40, 45, 41), PackedInt32Array(41, 45, 42), PackedInt32Array(42, 45, 44), PackedInt32Array(44, 45, 24), PackedInt32Array(24, 45, 47), PackedInt32Array(24, 47, 46), PackedInt32Array(24, 25, 44), PackedInt32Array(49, 19, 48), PackedInt32Array(48, 19, 20), PackedInt32Array(52, 51, 50), PackedInt32Array(48, 53, 49), PackedInt32Array(49, 53, 50), PackedInt32Array(50, 53, 52), PackedInt32Array(52, 53, 32), PackedInt32Array(32, 53, 55), PackedInt32Array(32, 55, 54), PackedInt32Array(32, 33, 52)]
 agent_radius = 1.0
 agent_max_climb = 0.1
+
+[sub_resource type="Animation" id="Animation_6gour"]
+resource_name = "Open"
+length = 0.7916667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorFaculty_1/FacultyDoor_26_001")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.7916667, 1, 0, -0.9710006, 0, 0.2390771)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bam8t"]
+_data = {
+&"Open": SubResource("Animation_6gour")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ynf5e"]
+
+[sub_resource type="Animation" id="Animation_344ge"]
+resource_name = "text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [8, 30]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.676, 0.45999998, 1), Color(0.95, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:theme_override_constants/outline_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [null, 10]
+}
+
+[sub_resource type="Animation" id="Animation_ynf5e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:theme_override_constants/outline_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hptm8"]
+_data = {
+&"RESET": SubResource("Animation_ynf5e"),
+&"text": SubResource("Animation_344ge")
+}
 
 [node name="Main" type="Node3D"]
 
@@ -31,7 +160,7 @@ navigation_mesh = SubResource("NavigationMesh_bo1nx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Enemy" parent="NavigationRegion3D" instance=ExtResource("3_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.081071, -3.296204)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07123411, -4.0481796)
 player_path = NodePath("../../Player")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -61,4 +190,68 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("5_kry3j")
 
+[node name="Keys" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 209.78978
+offset_top = -203.62128
+offset_right = 343.1798
+offset_bottom = -63.684082
+grow_vertical = 0
+rotation = 1.5707964
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_6bp64")
+
+[node name="KeysCount" type="Label" parent="."]
+texture_filter = 1
+offset_left = 152.0
+offset_top = 461.0
+offset_right = 298.0
+offset_bottom = 621.0
+theme_override_fonts/font = ExtResource("7_344ge")
+theme_override_font_sizes/font_size = 139
+text = "1/5"
+
+[node name="DoorFaculty" parent="." instance=ExtResource("8_344ge")]
+transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, 0, -0.011750191, -0.27132785)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="DoorFaculty"]
+libraries = {
+&"": SubResource("AnimationLibrary_bam8t")
+}
+
+[node name="Area3D" type="Area3D" parent="DoorFaculty"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorFaculty/Area3D"]
+transform = Transform3D(1.8538635, 0, -1.4210855e-14, 0, 2.1385894, 0, 1.4210855e-14, 0, 2.2145293, 0, 1.1130859, 0)
+shape = SubResource("BoxShape3D_ynf5e")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -32.0
+offset_right = 290.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_344ge")
+theme_override_font_sizes/font_size = 8
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+&"": SubResource("AnimationLibrary_hptm8")
+}
+speed_scale = 1.2
+
 [connection signal="finished" from="Node2D/VideoStreamPlayer" to="NavigationRegion3D/Enemy" method="_on_video_stream_player_finished"]
+[connection signal="body_entered" from="DoorFaculty/Area3D" to="Player" method="_on_door"]
