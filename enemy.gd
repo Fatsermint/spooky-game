@@ -54,19 +54,21 @@ func _physics_process(delta: float) -> void:
 		"HIT":
 			pass
 			
+@onready var cursor: TextureRect = $"../../TextureRect"
 
 var dir
 func hit_player():
 	if target_in_range():
 		jumpscare.visible = true
 		jumpscare.play()
-		
+		cursor.visible = false
 func target_in_range():
 	return global_position.distance_to(player.global_position) < ATTACK_RANGE
-			
+	
 
 
 func _on_video_stream_player_finished() -> void:
 	jumpscare.visible = false
 	jumpscare.stop()
 	get_tree().reload_current_scene()
+	cursor.visible = true
