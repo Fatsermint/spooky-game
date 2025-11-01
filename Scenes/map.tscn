@@ -27,7 +27,7 @@ emission_enabled = true
 emission = Color(0.38509774, 0.38437515, 0.16303724, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myvm1"]
-size = Vector3(0.034301758, 0.947377, 0.2611313)
+size = Vector3(0.034301758, 0.947377, 0.19355392)
 
 [node name="Map" type="Node3D"]
 
@@ -182,27 +182,6 @@ spot_angle_attenuation = 0.65975314
 
 [node name="Node3D" type="Node3D" parent="." groups=["keys"]]
 
-[node name="Props_Key3" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
-transform = Transform3D(10, 0, 0, 0, 9.819423, -1.8918114, 0, 1.8918114, 9.819423, 0, 0.64558506, -0.8749188)
-surface_material_override/0 = null
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key3"]
-transform = Transform3D(0.10000001, 0, 0, 0, -0.018918116, 0.09819422, 0, -0.09819422, -0.018918116, -0.07071234, 0.28483576, -0.2049191)
-spot_range = 5.42
-spot_attenuation = 1.75
-spot_angle = 33.63
-spot_angle_attenuation = 4.2871037
-
-[node name="Area3D" type="Area3D" parent="Node3D/Props_Key3"]
-transform = Transform3D(3.7512035, 0, 0, 0, 0.2742717, 0.18918112, 0, -0.052841224, 0.9819422, -0.039622813, -0.09029969, -0.07920648)
-collision_layer = 3
-collision_mask = 7
-collision_priority = 2.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Props_Key3/Area3D" groups=["keys"]]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999998, 0.011893487, 0.22100466, 0.04671438)
-shape = SubResource("BoxShape3D_myvm1")
-
 [node name="Props_Key4" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
 transform = Transform3D(10, 0, 0, 0, 9.819423, -1.8918114, 0, 1.8918114, 9.819423, -2.384513, 0.64558506, -0.8749188)
 surface_material_override/0 = null
@@ -221,5 +200,47 @@ collision_mask = 7
 collision_priority = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Props_Key4/Area3D" groups=["keys"]]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202, 0.48402146, 0.1793857)
+shape = SubResource("BoxShape3D_myvm1")
+
+[node name="Props_Key5" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
+transform = Transform3D(10, 0, 0, 0, 9.819423, -1.8918114, 0, 1.8918114, 9.819423, -0.74345756, 0.64558506, -0.8749188)
+surface_material_override/0 = null
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key5"]
+transform = Transform3D(0.10000001, 0, 0, 0, -0.018918116, 0.09819422, 0, -0.09819422, -0.018918116, -0.07071234, 0.28483576, -0.2049191)
+spot_range = 5.42
+spot_attenuation = 1.75
+spot_angle = 33.63
+spot_angle_attenuation = 4.2871037
+
+[node name="Area3D" type="Area3D" parent="Node3D/Props_Key5"]
+transform = Transform3D(1.0000002, 0, 0, 0, 0.9819422, 0.18918112, 0, -0.18918112, 0.9819422, -0.03962279, -0.51140314, -0.052989364)
+collision_layer = 3
+collision_mask = 7
+collision_priority = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Props_Key5/Area3D" groups=["keys"]]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202, 0.48402146, 0.1793857)
+shape = SubResource("BoxShape3D_myvm1")
+
+[node name="Props_Key6" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
+transform = Transform3D(10, 0, 0, 0, 9.819423, -1.8918114, 0, 1.8918114, 9.819423, 0.63467836, 0.64558506, -0.8749188)
+surface_material_override/0 = null
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key6"]
+transform = Transform3D(0.10000001, 0, 0, 0, -0.018918116, 0.09819422, 0, -0.09819422, -0.018918116, -0.07071234, 0.28483576, -0.2049191)
+spot_range = 5.42
+spot_attenuation = 1.75
+spot_angle = 33.63
+spot_angle_attenuation = 4.2871037
+
+[node name="Area3D" type="Area3D" parent="Node3D/Props_Key6"]
+transform = Transform3D(1.0000002, 0, 0, 0, 0.9819422, 0.18918112, 0, -0.18918112, 0.9819422, -0.03962279, -0.51140314, -0.052989364)
+collision_layer = 3
+collision_mask = 7
+collision_priority = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Props_Key6/Area3D" groups=["keys"]]
 transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202, 0.48402146, 0.1793857)
 shape = SubResource("BoxShape3D_myvm1")
