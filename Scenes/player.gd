@@ -18,6 +18,8 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if onGame == true:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * SENSITIVITY)
 			camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -63,11 +65,16 @@ var obj
 @onready var area: Area3D = $DoorFaculty/Area3D
 @onready var animation: AnimationPlayer = $"../Label/AnimationPlayer"
 @onready var label: Label = $"../Label"
-
+@onready var music: AudioStreamPlayer = $"../AudioStreamPlayer"
+@onready var iSeeYou: AudioStreamPlayer = $"../AudioStreamPlayer2"
+@onready var timer: Timer = $"../Timer"
+var time = 0
 var keys = 0
 var keysNeeded = 3
 var complete = false
 func _process(delta):
+	time += delta
+	print(time)
 	if onGame == true:
 		if keys == 0:
 			keys_count.text = "0/" + str(keysNeeded)
@@ -106,13 +113,19 @@ func _process(delta):
 
 func _on_door(body: Node3D) -> void:
 	if onGame == true:
-	
 		if complete == true:
 			print("you won")
+			
 			if not label.text == "You Won!":
 				label.text = "You Won!"
 				animation.play("text")
-
+				music.stop()
 
 func _on_starting_menu_play() -> void:
 	onGame = true
+	music.play()
+
+
+func _on_timer_timeout() -> void:
+	iSeeYou.play()
+	timer.start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://5j8rpmfohre3"]
+[gd_scene load_steps=20 format=3 uid="uid://5j8rpmfohre3"]
 
 [ext_resource type="PackedScene" uid="uid://gkx6eyn8xf7l" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dhlg0r3eh516c" path="res://Scenes/map.tscn" id="2_bo1nx"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://dlnmeytfjcqhk" path="res://Creepster-Regular.ttf" id="7_344ge"]
 [ext_resource type="PackedScene" uid="uid://ch6gax67crc3n" path="res://DoorFaculty.fbx" id="8_344ge"]
 [ext_resource type="PackedScene" uid="uid://dde4ge01jqy5a" path="res://Scenes/starting_menu.tscn" id="9_ynf5e"]
+[ext_resource type="AudioStream" uid="uid://glb28g31kr4u" path="res://1_Menu_Master.ogg" id="10_hptm8"]
+[ext_resource type="AudioStream" uid="uid://dxb8gv0722av3" path="res://sound-effects-eerie-ghost-voice_kemCjJn (1).mp3" id="11_d1ilt"]
 
 [sub_resource type="Environment" id="Environment_8gbba"]
 background_energy_multiplier = 0.01
@@ -260,7 +262,23 @@ speed_scale = 1.2
 [node name="Starting Menu" parent="." instance=ExtResource("9_ynf5e")]
 mouse_filter = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hptm8")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_d1ilt")
+volume_db = 1.5
+pitch_scale = 1.34
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="finished" from="Node2D/VideoStreamPlayer" to="NavigationRegion3D/Enemy" method="_on_video_stream_player_finished"]
 [connection signal="body_entered" from="DoorFaculty/Area3D" to="Player" method="_on_door"]
 [connection signal="play" from="Starting Menu" to="Player" method="_on_starting_menu_play"]
 [connection signal="play" from="Starting Menu" to="NavigationRegion3D/Enemy" method="_on_starting_menu_play"]
+[connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]
