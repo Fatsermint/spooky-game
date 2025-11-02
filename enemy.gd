@@ -5,8 +5,8 @@ var player = null
 var state_machine
 
 var ATTACK_RANGE = 1.75
-const SPEED = 2.5 #2
-var finished = true
+var SPEED = 2.5 #2
+
 var onGame = false
 @onready var jumpscare: VideoStreamPlayer = $"../../Node2D/VideoStreamPlayer"
 
@@ -16,6 +16,8 @@ var onGame = false
 @onready var collisionshape: CollisionShape3D = $CollisionShape3D
 @onready var rayCast: RayCast3D = $RayCast
 @onready var jump_scare: Node2D = $"../../JumpScare"
+@onready var you_lost: Control = $"../../YouLost"
+@onready var infoLabel: Label = $"../../Label"
 
 
 
@@ -75,9 +77,28 @@ func target_in_range():
 func _on_video_stream_player_finished() -> void:
 	jumpscare.visible = false
 	jumpscare.stop()
-	get_tree().reload_current_scene()
-	cursor.visible = true
-
+	cursor.visible = false
+	you_lost.visible = true
+	onGame = false
+	infoLabel.visible = false
+	
 
 func _on_starting_menu_play() -> void:
 	onGame = true
+
+
+func _on_you_lost_mainmenu() -> void:
+	onGame = true
+
+
+func _on_starting_menu_easy() -> void:
+	SPEED = 2
+	
+
+
+func _on_starting_menu_normal() -> void:
+	SPEED = 2.45
+
+
+func _on_starting_menu_hard() -> void:
+	SPEED = 2.9

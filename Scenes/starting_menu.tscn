@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dde4ge01jqy5a"]
+[gd_scene load_steps=7 format=3 uid="uid://dde4ge01jqy5a"]
 
 [ext_resource type="Script" uid="uid://e43ystq41xkl" path="res://starting_menu.gd" id="1_ievhk"]
 [ext_resource type="Texture2D" uid="uid://d0n5p2ri5e7v8" path="res://Button_Zombie.png" id="2_2bgwj"]
 [ext_resource type="FontFile" uid="uid://dlnmeytfjcqhk" path="res://Creepster-Regular.ttf" id="3_0pu32"]
 [ext_resource type="Texture2D" uid="uid://bh8mcm61qnl0o" path="res://Button_Flesh.png" id="4_mjxvy"]
 [ext_resource type="Texture2D" uid="uid://c7muj60j6akpm" path="res://Button_Backbone.png" id="5_3vvgq"]
+[ext_resource type="Texture2D" uid="uid://p03lwm6pakul" path="res://Gauge_Stomach_Empty.png" id="6_2bgwj"]
 
 [node name="Starting Menu" type="Control"]
 layout_mode = 3
@@ -147,5 +148,127 @@ text = "VERY cool game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 747.0
+offset_top = 197.0
+offset_right = 1099.0
+offset_bottom = 517.0
+texture = ExtResource("6_2bgwj")
+
+[node name="Easy" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 77.0
+offset_right = 794.0
+offset_bottom = 237.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2bgwj")
+
+[node name="Label" type="Label" parent="TextureRect/Easy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 120
+text = "Easy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="TextureRect/Easy"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_right = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Normal" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 128.0
+offset_right = 814.0
+offset_bottom = 288.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2bgwj")
+
+[node name="Label" type="Label" parent="TextureRect/Normal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 120
+text = "Normal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="TextureRect/Normal"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_right = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hard" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 219.0
+offset_right = 763.0
+offset_bottom = 379.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2bgwj")
+flip_h = true
+
+[node name="Label" type="Label" parent="TextureRect/Hard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 120
+text = "Hard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="TextureRect/Hard"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="TextureRect2/Button" to="." method="_on_tutibutton_pressed"]
 [connection signal="pressed" from="TextureRect3/Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="TextureRect/Easy/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureRect/Normal/Button" to="." method="_on_normal_button_pressed"]
+[connection signal="pressed" from="TextureRect/Hard/Button" to="." method="_on_hard_button_pressed"]

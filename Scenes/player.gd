@@ -68,14 +68,16 @@ var obj
 @onready var music: AudioStreamPlayer = $"../AudioStreamPlayer"
 @onready var iSeeYou: AudioStreamPlayer = $"../AudioStreamPlayer2"
 @onready var timer: Timer = $"../Timer"
+@onready var keysImg: TextureRect = $"../Keys"
+
 var time = 0
 var keys = 0
 var keysNeeded = 3
 var complete = false
 func _process(delta):
-	time += delta
-	print(time)
+
 	if onGame == true:
+		time += delta
 		if keys == 0:
 			keys_count.text = "0/" + str(keysNeeded)
 			if not label.text == "Don't Let That Zombie Get Close To You":
@@ -129,3 +131,33 @@ func _on_starting_menu_play() -> void:
 func _on_timer_timeout() -> void:
 	iSeeYou.play()
 	timer.start()
+
+
+func _on_video_stream_player_finished() -> void:
+	onGame = false
+	keys_count.visible = false
+	keysImg.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _on_you_lost_try_again() -> void:
+	get_tree().reload_current_scene()
+
+
+func _on_you_lost_mainmenu() -> void:
+	keys = 0
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+
+
+func _on_starting_menu_easy() -> void:
+	keysNeeded = 3
+
+
+func _on_starting_menu_normal() -> void:
+	keysNeeded = 4
+
+
+
+func _on_starting_menu_hard() -> void:
+	keysNeeded = 5

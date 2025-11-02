@@ -510,7 +510,7 @@ spot_angle_attenuation = 6.276668
 [node name="Node3D" type="Node3D" parent="." groups=["keys"]]
 
 [node name="Props_Key4" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
-transform = Transform3D(10, 0, 0, 0, 9.819423, -1.8918114, 0, 1.8918114, 9.819423, 9.216358, 0.64558506, -8.180342)
+transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 9.216358, 0.64558506, -8.180342)
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key4"]
@@ -530,8 +530,92 @@ collision_priority = 2.0
 transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202, 0.48402146, 0.1793857)
 shape = SubResource("BoxShape3D_myvm1")
 
+[node name="Props_Key7" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
+transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 14.950772, 0.64558506, 17.672907)
+surface_material_override/0 = null
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key7"]
+transform = Transform3D(0.10000001, 0, 0, 0, -0.018918116, 0.09819422, 0, -0.09819422, -0.018918116, -0.07071234, 0.28483576, -0.2049191)
+spot_range = 5.42
+spot_attenuation = 1.75
+spot_angle = 33.63
+spot_angle_attenuation = 4.2871037
+
+[node name="Area3D" type="Area3D" parent="Node3D/Props_Key7"]
+transform = Transform3D(1.0000002, 0, 0, 0, 0.9819422, 0.18918112, 0, -0.18918112, 0.9819422, -0.03962279, -0.51140314, -0.052989364)
+collision_layer = 3
+collision_mask = 7
+collision_priority = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Props_Key7/Area3D" groups=["keys"]]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202, 0.48402146, 0.1793857)
+shape = SubResource("BoxShape3D_myvm1")
+
+[node name="Props_Key8" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
+transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 2.5834777, 0.64558506, 5.8526416)
+surface_material_override/0 = null
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key8"]
+transform = Transform3D(0.10000001, 0, 0, 0, -0.018918116, 0.09819422, 0, -0.09819422, -0.018918116, -0.07071234, 0.28483576, -0.2049191)
+spot_range = 5.42
+spot_attenuation = 1.75
+spot_angle = 33.63
+spot_angle_attenuation = 4.2871037
+
+[node name="Area3D" type="Area3D" parent="Node3D/Props_Key8"]
+transform = Transform3D(1.0000002, 0, 0, 0, 0.9819422, 0.18918112, 0, -0.18918112, 0.9819422, -0.03962279, -0.51140314, -0.052989364)
+collision_layer = 3
+collision_mask = 7
+collision_priority = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Props_Key8/Area3D" groups=["keys"]]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202, 0.48402146, 0.1793857)
+shape = SubResource("BoxShape3D_myvm1")
+
+[node name="Props_Key9" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
+transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, -6.942622, 0.64558506, 7.602111)
+surface_material_override/0 = null
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key9"]
+transform = Transform3D(0.10000001, 0, 0, 0, -0.018918116, 0.09819422, 0, -0.09819422, -0.018918116, -0.07071234, 0.28483576, -0.2049191)
+spot_range = 5.42
+spot_attenuation = 1.75
+spot_angle = 33.63
+spot_angle_attenuation = 4.2871037
+
+[node name="Area3D" type="Area3D" parent="Node3D/Props_Key9"]
+transform = Transform3D(1.0000002, 0, 0, 0, 0.9819422, 0.18918112, 0, -0.18918112, 0.9819422, -0.03962279, -0.51140314, -0.052989364)
+collision_layer = 3
+collision_mask = 7
+collision_priority = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Props_Key9/Area3D" groups=["keys"]]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202, 0.48402146, 0.1793857)
+shape = SubResource("BoxShape3D_myvm1")
+
+[node name="Props_Key10" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
+transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, -18.808172, 0.64558506, -6.414081)
+surface_material_override/0 = null
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key10"]
+transform = Transform3D(0.10000001, 0, 0, 0, -0.018918116, 0.09819422, 0, -0.09819422, -0.018918116, -0.07071234, 0.28483576, -0.2049191)
+spot_range = 5.42
+spot_attenuation = 1.75
+spot_angle = 33.63
+spot_angle_attenuation = 4.2871037
+
+[node name="Area3D" type="Area3D" parent="Node3D/Props_Key10"]
+transform = Transform3D(1.0000002, 0, 0, 0, 0.9819422, 0.18918112, 0, -0.18918112, 0.9819422, -0.03962279, -0.51140314, -0.052989364)
+collision_layer = 3
+collision_mask = 7
+collision_priority = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Props_Key10/Area3D" groups=["keys"]]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202, 0.48402146, 0.1793857)
+shape = SubResource("BoxShape3D_myvm1")
+
 [node name="Props_Key5" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
-transform = Transform3D(10, 0, 0, 0, 9.819423, -1.8918114, 0, 1.8918114, 9.819423, 17.92015, 0.64558506, -0.8749188)
+transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 17.92015, 0.64558506, -0.8749188)
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key5"]
@@ -552,7 +636,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202
 shape = SubResource("BoxShape3D_myvm1")
 
 [node name="Props_Key6" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
-transform = Transform3D(10, 0, 0, 0, 9.819423, -1.8918114, 0, 1.8918114, 9.819423, 0.63467836, 1.982508, -4.875013)
+transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 0.63467836, 1.982508, -4.875013)
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key6"]
