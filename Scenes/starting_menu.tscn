@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=3 uid="uid://dde4ge01jqy5a"]
+
+[ext_resource type="Script" uid="uid://e43ystq41xkl" path="res://starting_menu.gd" id="1_ievhk"]
+[ext_resource type="Texture2D" uid="uid://d0n5p2ri5e7v8" path="res://Button_Zombie.png" id="2_2bgwj"]
+[ext_resource type="FontFile" uid="uid://dlnmeytfjcqhk" path="res://Creepster-Regular.ttf" id="3_0pu32"]
+[ext_resource type="Texture2D" uid="uid://bh8mcm61qnl0o" path="res://Button_Flesh.png" id="4_mjxvy"]
+[ext_resource type="Texture2D" uid="uid://c7muj60j6akpm" path="res://Button_Backbone.png" id="5_3vvgq"]
+
+[node name="Starting Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ievhk")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 43.0
+offset_right = 484.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2bgwj")
+
+[node name="Label" type="Label" parent="TextureRect2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 126.0
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 111
+text = "Turorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="TextureRect2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.88, 0.88, 0.88, 0)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.88, 0.88, 0.88, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -66.0
+offset_right = 485.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mjxvy")
+
+[node name="Label2" type="Label" parent="TextureRect3"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 640.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 111
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="TextureRect3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 2.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.88, 0.88, 0.88, 0)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 0)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_disabled_color = Color(0.88, 0.88, 0.88, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = -294.0
+offset_right = 323.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_3vvgq")
+
+[node name="Label2" type="Label" parent="TextureRect4"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 20.0
+offset_right = 637.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 90
+text = "VERY cool game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureRect2/Button" to="." method="_on_tutibutton_pressed"]
+[connection signal="pressed" from="TextureRect3/Button" to="." method="_on_play_button_pressed"]

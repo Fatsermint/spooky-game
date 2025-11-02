@@ -1,5 +1,5 @@
 extends CharacterBody3D
-@onready var rayCast: RayCast3D = $RayCast3D
+@onready var rayCast: RayCast3D = $Node3D/RayCast3D
 
 @onready var camera: Camera3D = $Node3D/Camera3D
 @onready var head: Node3D = $Node3D
@@ -12,18 +12,18 @@ const JUMP_VELOCITY = 3
 const  BOB_FREQ = 2
 const BOB_AMP = 0.08
 var t_bob = 0
-
+var onGame = false
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 func _unhandled_input(event: InputEvent) -> void:
-			if event is InputEventMouseMotion:
-				head.rotate_y(-event.relative.x * SENSITIVITY)
-				camera.rotate_x(-event.relative.y * SENSITIVITY)
-				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
-			
+	if onGame == true:
+		if event is InputEventMouseMotion:
+			head.rotate_y(-event.relative.x * SENSITIVITY)
+			camera.rotate_x(-event.relative.y * SENSITIVITY)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 func _physics_process(delta: float) -> void:
-					
+	if onGame == true:
 			if not is_on_floor():
 				velocity += get_gravity() * delta
 
@@ -50,11 +50,12 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 
 func _headbob(time) -> Vector3:
-	
+
 		var pos = Vector3.ZERO
 		pos.y = sin(time * BOB_FREQ) * BOB_AMP
 		pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP 
 		return pos
+
 var obj
 
 @onready var ray: RayCast3D = $Node3D/RayCast3D
@@ -67,44 +68,51 @@ var keys = 0
 var keysNeeded = 3
 var complete = false
 func _process(delta):
-	if keys == 0:
-		keys_count.text = "0/" + str(keysNeeded)
-		if not label.text == "Don't Let That Zombie Get Close To You":
-			animation.play("text")
-			label.text = "Don't Let That Zombie Get Close To You"
-	if keys == 1:
-		complete = true
-		if not label.text == "WOW! You Already Found One? Keep Going!":
-			label.text = "WOW! You Already Found One? Keep Going!"
-			animation.play("text")
+	if onGame == true:
+		if keys == 0:
+			keys_count.text = "0/" + str(keysNeeded)
+			if not label.text == "Don't Let That Zombie Get Close To You":
+				animation.play("text")
+				label.text = "Don't Let That Zombie Get Close To You"
+		if keys == 1:
+			complete = true
+			if not label.text == "WOW! You Already Found One? Keep Going!":
+				label.text = "WOW! You Already Found One? Keep Going!"
+				animation.play("text")
 		
-	if keys == 2:
-		if not label.text == "Only One Key Left To Find!":
-			label.text = "Only One Key Left To Find!"
-			animation.play("text")
+		if keys == 2:
+			if not label.text == "Only One Key Left To Find!":
+				label.text = "Only One Key Left To Find!"
+				animation.play("text")
 		
-	if keys == 3 and complete == false:
-		if not label.text == "Now Head To Door Where You Started From":
-			label.text = "Now Head To Door Where You Started From"
-			animation.play("text")
+		if keys == 3 and complete == false:
+			if not label.text == "Now Head To Door Where You Started From":
+				label.text = "Now Head To Door Where You Started From"
+				animation.play("text")
 
-	if Input.is_action_just_pressed("interract"):
-		print("1")
-		if ray.is_colliding():
-			print("2")
-			obj = ray.get_collider()
-			print(obj)
-			if obj.get_parent().is_in_group("keys"):
-				obj.get_parent().queue_free()
-				keys += 1
-				keys_count.text = str(keys) +"/" + str(keysNeeded)
-	if keys == keysNeeded:
-		complete = true
+		if Input.is_action_just_pressed("interract"):
+			print("1")
+			if ray.is_colliding():
+				print("2")
+				obj = ray.get_collider()
+				print(obj)
+				if obj.get_parent().is_in_group("keys"):
+					obj.get_parent().queue_free()
+					keys += 1
+					keys_count.text = str(keys) +"/" + str(keysNeeded)
+		if keys == keysNeeded:
+			complete = true
 
 
 func _on_door(body: Node3D) -> void:
-	if complete == true:
-		print("you won")
-		if not label.text == "You Won!":
-			label.text = "You Won!"
-			animation.play("text")
+	if onGame == true:
+	
+		if complete == true:
+			print("you won")
+			if not label.text == "You Won!":
+				label.text = "You Won!"
+				animation.play("text")
+
+
+func _on_starting_menu_play() -> void:
+	onGame = true
