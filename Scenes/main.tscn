@@ -164,7 +164,15 @@ navigation_mesh = SubResource("NavigationMesh_bo1nx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Enemy" parent="NavigationRegion3D" instance=ExtResource("3_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07123411, -4.0481796)
+transform = Transform3D(-0.11840401, 0, 0.9929655, 0, 1, 0, -0.9929655, 0, -0.11840401, 8.350735, -0.07123411, -4.0481796)
+player_path = NodePath("../../Player")
+
+[node name="Enemy2" parent="NavigationRegion3D" instance=ExtResource("3_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.989634, -0.07123411, -10.895185)
+player_path = NodePath("../../Player")
+
+[node name="Enemy3" parent="NavigationRegion3D" instance=ExtResource("3_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.176381, -0.07123411, 3.8294272)
 player_path = NodePath("../../Player")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -196,7 +204,6 @@ size_flags_vertical = 4
 texture = ExtResource("5_kry3j")
 
 [node name="Keys" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -210,12 +217,13 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_6bp64")
 
 [node name="KeysCount" type="Label" parent="."]
-visible = false
 texture_filter = 1
 offset_left = 152.0
 offset_top = 461.0
 offset_right = 298.0
 offset_bottom = 621.0
+theme_override_colors/font_color = Color(0.6, 0, 0, 1)
+theme_override_constants/outline_size = 28
 theme_override_fonts/font = ExtResource("7_344ge")
 theme_override_font_sizes/font_size = 139
 text = "1/5"

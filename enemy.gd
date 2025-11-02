@@ -39,7 +39,6 @@ func _physics_process(delta: float) -> void:
 					if rayCast.get_collider() == player:
 						animationTree.set("parameters/conditions/WALK", true)
 			"WALK":
-
 				velocity = Vector3.ZERO
 				navigationAgent.set_target_position(player.global_position)
 				var next_nav_point = navigationAgent.get_next_path_position()
@@ -92,13 +91,13 @@ func _on_you_lost_mainmenu() -> void:
 
 
 func _on_starting_menu_easy() -> void:
-	SPEED = 2
+	SPEED = 1.67 
 	
 
 
 func _on_starting_menu_normal() -> void:
-	SPEED = 2.45
+	SPEED = 2
 
 
 func _on_starting_menu_hard() -> void:
-	SPEED = 2.9
+	SPEED = 2.5

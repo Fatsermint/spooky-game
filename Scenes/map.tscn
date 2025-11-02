@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://dhlg0r3eh516c"]
+[gd_scene load_steps=20 format=4 uid="uid://dhlg0r3eh516c"]
 
 [ext_resource type="Material" uid="uid://bdui5o1rsblm" path="res://Assets/Wall_Mat.tres" id="1_ci6au"]
 [ext_resource type="Texture2D" uid="uid://ckrja6bchxxsh" path="res://Assets/BASE COLOR_PaintedWall.png" id="2_26yhd"]
 [ext_resource type="Texture2D" uid="uid://dj1pm5mq3cs6h" path="res://Assets/OfficeCeiling001_1K-JPG_AmbientOcclusion.jpg" id="3_p3ir5"]
 [ext_resource type="PackedScene" uid="uid://5qi2drxfv6b6" path="res://Scenes/key.tscn" id="4_myvm1"]
+[ext_resource type="Texture2D" uid="uid://d3lpvynqhva4o" path="res://gold_texture.jpg" id="5_q0mm3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_26yhd"]
 
@@ -28,6 +29,12 @@ emission = Color(0.38509774, 0.38437515, 0.16303724, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_myvm1"]
 size = Vector3(0.034301758, 0.947377, 0.19355392)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q3n4"]
+albedo_texture = ExtResource("5_q0mm3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c2oa"]
+albedo_texture = ExtResource("5_q0mm3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgugl"]
 resource_name = "White"
@@ -616,6 +623,7 @@ shape = SubResource("BoxShape3D_myvm1")
 
 [node name="Props_Key5" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
 transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 17.92015, 0.64558506, -0.8749188)
+material_override = SubResource("StandardMaterial3D_6q3n4")
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key5"]
@@ -636,7 +644,8 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.033927202
 shape = SubResource("BoxShape3D_myvm1")
 
 [node name="Props_Key6" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
-transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 0.63467836, 1.982508, -4.875013)
+transform = Transform3D(9.999999, 0, 0, 0, 0.004188577, -9.999999, 0, 9.999999, 0.004188577, 3.0150847, 2.4446378, -6.837387)
+material_override = SubResource("StandardMaterial3D_4c2oa")
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key6"]

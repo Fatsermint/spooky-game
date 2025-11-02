@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxqtpsk4k1rjs"]
+
+[ext_resource type="Texture2D" uid="uid://d0n5p2ri5e7v8" path="res://Button_Zombie.png" id="1_cgmvo"]
+[ext_resource type="FontFile" uid="uid://dlnmeytfjcqhk" path="res://Creepster-Regular.ttf" id="2_vh8u0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 62.0
+offset_right = 320.0
+offset_bottom = 222.0
+grow_horizontal = 2
+texture = ExtResource("1_cgmvo")
+
+[node name="Label" type="Label" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 642.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0.62, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_vh8u0")
+theme_override_font_sizes/font_size = 110
+text = "you won!"
+horizontal_alignment = 1
+vertical_alignment = 1

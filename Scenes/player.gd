@@ -69,20 +69,17 @@ var obj
 @onready var iSeeYou: AudioStreamPlayer = $"../AudioStreamPlayer2"
 @onready var timer: Timer = $"../Timer"
 @onready var keysImg: TextureRect = $"../Keys"
-
-var time = 0
 var keys = 0
 var keysNeeded = 3
 var complete = false
 func _process(delta):
 
 	if onGame == true:
-		time += delta
 		if keys == 0:
 			keys_count.text = "0/" + str(keysNeeded)
-			if not label.text == "Don't Let That Zombie Get Close To You":
+			if not label.text == "Don't Let That Zombie Get Close To You!":
 				animation.play("text")
-				label.text = "Don't Let That Zombie Get Close To You"
+				label.text = "Don't Let That Zombie Get Close To You!"
 		if keys == 1:
 			complete = true
 			if not label.text == "WOW! You Already Found One? Keep Going!":
@@ -90,15 +87,68 @@ func _process(delta):
 				animation.play("text")
 		
 		if keys == 2:
-			if not label.text == "Only One Key Left To Find!":
-				label.text = "Only One Key Left To Find!"
-				animation.play("text")
-		
-		if keys == 3 and complete == false:
+			if keysNeeded ==3:
+				if not label.text == "Only One Key Left To Find!":
+					label.text = "Only One Key Left To Find!"
+					animation.play("text")
+			else:
+				if not label.text == "You can do it!":
+					label.text = "You can do it!"
+					animation.play("text")
+		if keys == 3:
+			if keysNeeded == 6:
+				if not label.text == "Halfway!":
+					label.text = "Halfway!"
+					animation.play("text")
+					
+			if keysNeeded == 9:
+				if not label.text == "You are 1/3 way there!":
+					label.text = "You are 1/3 way there!"
+					animation.play("text")
+			if keysNeeded == 3 and complete == false:
+				if not label.text == "Now Head To Door Where You Started From":
+					label.text = "Now Head To Door Where You Started From"
+					animation.play("text")
+		if keys == 4:
+			if keysNeeded == 6 or keysNeeded == 9:
+				if not label.text == "Keep going!":
+					label.text = "Keep going!"
+					animation.play("text")
+				
+		if keys == 5:
+			if keysNeeded == 6:
+				if not label.text == "You have to find only one more!":
+					label.text = "You have to find only one more!"
+					animation.play("text")
+					
+			if keysNeeded == 9:
+				if not label.text == "You are over halfway!":
+					label.text = "You are over halfway!"
+					animation.play("text")
+					
+		if keys == 6:
+			if keysNeeded == 9:
+				if not label.text == "You are true gamer!":
+					label.text = "You are true gamer!"
+					animation.play("text")
+						
+		if keys == 7:
+			if keysNeeded == 9:
+				if not label.text == "You can do it!!!!":
+					label.text = "You can do it!!!!"
+					animation.play("text")
+						
+		if keys == 8:
+			if keysNeeded == 9:
+				if not label.text == "ONE MORE!!!":
+					label.text = "ONE MORE!!!"
+					animation.play("text")
+						
+		if keys == keysNeeded and complete == false:
 			if not label.text == "Now Head To Door Where You Started From":
 				label.text = "Now Head To Door Where You Started From"
 				animation.play("text")
-
+				complete = true
 		if Input.is_action_just_pressed("interract"):
 			print("1")
 			if ray.is_colliding():
@@ -109,8 +159,6 @@ func _process(delta):
 					obj.get_parent().queue_free()
 					keys += 1
 					keys_count.text = str(keys) +"/" + str(keysNeeded)
-		if keys == keysNeeded:
-			complete = true
 
 
 func _on_door(body: Node3D) -> void:
@@ -155,9 +203,9 @@ func _on_starting_menu_easy() -> void:
 
 
 func _on_starting_menu_normal() -> void:
-	keysNeeded = 4
+	keysNeeded = 6
 
 
 
 func _on_starting_menu_hard() -> void:
-	keysNeeded = 5
+	keysNeeded = 9
