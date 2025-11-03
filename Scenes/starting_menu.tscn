@@ -353,11 +353,6 @@ text = "Move around with wasd
 rotate head with mouse
 collect keys with left click"
 
-[node name="Control" type="Control" parent="TextureRect5"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Button" type="Button" parent="TextureRect5"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0

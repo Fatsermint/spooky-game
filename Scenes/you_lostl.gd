@@ -1,6 +1,7 @@
 extends Control
 
 @onready var label: Label = $TextureRect/Label
+@onready var labelmode: Label = $TextureRect3/Label
 
 @onready var tryAgain: Label = $TextureRect2/Label
 @onready var backToMainMenu: Label = $TextureRect3/Label
@@ -20,3 +21,16 @@ func _on_mainMenu_button_pressed() -> void:
 
 func _on_player_win() -> void:
 	label.text = "You won!"
+
+
+func _on_starting_menu_easy() -> void:
+	labelmode.text = "game mode: easy"
+
+
+func _on_starting_menu_normal() -> void:
+	labelmode.text = "game mode: normal"
+
+
+
+func _on_starting_menu_hard() -> void:
+	labelmode.text = "game mode: hard"

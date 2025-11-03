@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d6qdtqjdb0hr"]
+[gd_scene load_steps=3 format=3 uid="uid://d6qdtqjdb0hr"]
 
 [ext_resource type="Texture2D" uid="uid://64ofc8dpvbn" path="res://addons/AJQQvm.png" id="1_osvl0"]
+[ext_resource type="FontFile" uid="uid://dlnmeytfjcqhk" path="res://Creepster-Regular.ttf" id="2_k7nv6"]
 
 [node name="TextureRect" type="TextureRect"]
 texture_filter = 1
@@ -14,3 +15,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_osvl0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1526.6666
+offset_top = 1001.6666
+offset_right = 1847.6666
+offset_bottom = 1041.6665
+theme_override_fonts/font = ExtResource("2_k7nv6")
+theme_override_font_sizes/font_size = 32
+text = "Closes automaticly soon..."

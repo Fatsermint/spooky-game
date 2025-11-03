@@ -91,16 +91,16 @@ func _on_you_lost_mainmenu() -> void:
 
 
 func _on_starting_menu_easy() -> void:
-	SPEED = 2.25
+	SPEED = 2.45
 	
 
 
 func _on_starting_menu_normal() -> void:
-	SPEED = 2.5
+	SPEED = 2.67
 
 
 func _on_starting_menu_hard() -> void:
-	SPEED = 2.8
+	SPEED = 2.85
 
 
 func _on_player_win() -> void:

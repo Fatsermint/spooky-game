@@ -21,7 +21,6 @@ ambient_light_energy = 0.0
 [sub_resource type="NavigationMesh" id="NavigationMesh_bo1nx"]
 vertices = PackedVector3Array(-18.276, 0.5, -0.17737389, -12.525999, 0.5, -0.17737389, -11.775999, 0.5, -1.4273739, -18.276, 0.5, -19.427374, 2.224001, 0.5, -1.4273739, 2.224001, 0.5, -19.427374, -18.276, 5, -0.17737389, -12.525999, 5, -0.17737389, -11.775999, 5, -1.4273739, -18.276, 5, -19.427374, 2.224001, 5, -1.4273739, 2.224001, 5, -19.427374, 4.224001, 0.5, -1.4273739, 4.974001, 0.5, -0.17737389, 8.224001, 0.5, -0.17737389, 8.974001, 0.5, -1.4273739, 18.224, 0.5, -1.4273739, 18.224, 0.5, -19.427374, 4.224001, 5, -1.4273739, 4.974001, 5, -0.17737389, 8.224001, 5, -0.17737389, 8.974001, 5, -1.4273739, 18.224, 5, -1.4273739, 18.224, 5, -19.427374, -4.025999, 0.5, 17.322626, -4.025999, 0.5, 11.572626, -4.775999, 0.5, 11.572626, -12.525999, 0.5, 0.5726261, -5.525999, 0.5, 10.822626, -11.775999, 0.5, 1.3226261, -18.276, 0.5, 17.322626, -5.525999, 0.5, 1.3226261, -4.025999, 5, 17.322626, -4.025999, 5, 11.572626, -4.775999, 5, 11.572626, -12.525999, 5, 0.5726261, -5.525999, 5, 10.822626, -11.775999, 5, 1.3226261, -18.276, 5, 17.322626, -5.525999, 5, 1.3226261, 8.224001, 0.5, 0.5726261, 4.974001, 0.5, 0.5726261, 4.224001, 0.5, 1.3226261, -2.775999, 0.5, 1.3226261, -2.775999, 0.5, 10.822626, 8.974001, 0.5, 1.3226261, 18.224, 0.5, 17.322626, 18.224, 0.5, 1.3226261, 8.224001, 5, 0.5726261, 4.974001, 5, 0.5726261, 4.224001, 5, 1.3226261, -2.775999, 5, 1.3226261, -2.775999, 5, 10.822626, 8.974001, 5, 1.3226261, 18.224, 5, 17.322626, 18.224, 5, 1.3226261)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(4, 2, 5), PackedInt32Array(5, 2, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(15, 12, 5), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 5), PackedInt32Array(12, 4, 5), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(21, 18, 11), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 11), PackedInt32Array(18, 10, 11), PackedInt32Array(26, 25, 24), PackedInt32Array(0, 1, 27), PackedInt32Array(28, 26, 24), PackedInt32Array(27, 29, 0), PackedInt32Array(0, 29, 28), PackedInt32Array(0, 28, 24), PackedInt32Array(0, 24, 30), PackedInt32Array(29, 31, 28), PackedInt32Array(34, 33, 32), PackedInt32Array(6, 7, 35), PackedInt32Array(36, 34, 32), PackedInt32Array(35, 37, 6), PackedInt32Array(6, 37, 36), PackedInt32Array(6, 36, 32), PackedInt32Array(6, 32, 38), PackedInt32Array(37, 39, 36), PackedInt32Array(41, 13, 40), PackedInt32Array(40, 13, 14), PackedInt32Array(44, 43, 42), PackedInt32Array(40, 45, 41), PackedInt32Array(41, 45, 42), PackedInt32Array(42, 45, 44), PackedInt32Array(44, 45, 24), PackedInt32Array(24, 45, 47), PackedInt32Array(24, 47, 46), PackedInt32Array(24, 25, 44), PackedInt32Array(49, 19, 48), PackedInt32Array(48, 19, 20), PackedInt32Array(52, 51, 50), PackedInt32Array(48, 53, 49), PackedInt32Array(49, 53, 50), PackedInt32Array(50, 53, 52), PackedInt32Array(52, 53, 32), PackedInt32Array(32, 53, 55), PackedInt32Array(32, 55, 54), PackedInt32Array(32, 33, 52)]
-agent_radius = 1.0
 agent_max_climb = 0.1
 
 [sub_resource type="Animation" id="Animation_6gour"]
@@ -264,6 +263,8 @@ libraries = {
 speed_scale = 1.2
 
 [node name="Starting Menu" parent="." instance=ExtResource("9_ynf5e")]
+offset_top = 2.0
+offset_bottom = 2.0
 mouse_filter = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -289,6 +290,7 @@ visible = false
 mouse_filter = 0
 
 [node name="Timer" type="Timer" parent="TextureRect2"]
+wait_time = 7.0
 one_shot = true
 
 [connection signal="win" from="Player" to="NavigationRegion3D/Enemy" method="_on_player_win"]
@@ -298,10 +300,13 @@ one_shot = true
 [connection signal="body_entered" from="DoorFaculty/Area3D" to="Player" method="_on_door"]
 [connection signal="easy" from="Starting Menu" to="Player" method="_on_starting_menu_easy"]
 [connection signal="easy" from="Starting Menu" to="NavigationRegion3D/Enemy" method="_on_starting_menu_easy"]
+[connection signal="easy" from="Starting Menu" to="YouLost" method="_on_starting_menu_easy"]
 [connection signal="hard" from="Starting Menu" to="Player" method="_on_starting_menu_hard"]
 [connection signal="hard" from="Starting Menu" to="NavigationRegion3D/Enemy" method="_on_starting_menu_hard"]
+[connection signal="hard" from="Starting Menu" to="YouLost" method="_on_starting_menu_hard"]
 [connection signal="normal" from="Starting Menu" to="Player" method="_on_starting_menu_normal"]
 [connection signal="normal" from="Starting Menu" to="NavigationRegion3D/Enemy" method="_on_starting_menu_normal"]
+[connection signal="normal" from="Starting Menu" to="YouLost" method="_on_starting_menu_normal"]
 [connection signal="play" from="Starting Menu" to="Player" method="_on_starting_menu_play"]
 [connection signal="play" from="Starting Menu" to="NavigationRegion3D/Enemy" method="_on_starting_menu_play"]
 [connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]

@@ -365,6 +365,20 @@ spot_attenuation = 1.81
 spot_angle = 53.19
 spot_angle_attenuation = 6.276668
 
+[node name="Light17" type="CSGBox3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.9814394, 4.8687544, 3.3280568)
+size = Vector3(1.2423096, 1.2757568, 0.35559082)
+material = SubResource("StandardMaterial3D_w7jjh")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights/Light17"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0)
+light_energy = 4.92
+light_bake_mode = 1
+spot_range = 48.282
+spot_attenuation = 1.81
+spot_angle = 53.19
+spot_angle_attenuation = 6.276668
+
 [node name="Light11" type="CSGBox3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 16.666428, 4.8687544, 4.6918135)
 size = Vector3(1.2423096, 1.2757568, 0.35559082)
@@ -419,11 +433,12 @@ spot_angle = 53.19
 spot_angle_attenuation = 6.276668
 
 [node name="Light16" type="CSGBox3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 3.3372285, 4.8687544, 10.0088825)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.993826, 4.8687544, 8.666463)
 size = Vector3(1.2423096, 1.2757568, 0.35559082)
 material = SubResource("StandardMaterial3D_w7jjh")
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Lights/Light16"]
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights/Light16"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0.2827189, 0, 0)
 light_energy = 4.92
 light_bake_mode = 1
 spot_range = 48.282
@@ -437,6 +452,20 @@ size = Vector3(1.2423096, 1.2757568, 0.35559082)
 material = SubResource("StandardMaterial3D_w7jjh")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights/Light15"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0)
+light_energy = 4.92
+light_bake_mode = 1
+spot_range = 48.282
+spot_attenuation = 1.81
+spot_angle = 53.19
+spot_angle_attenuation = 6.276668
+
+[node name="Light18" type="CSGBox3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7.3236966, 4.8687544, 2.0164738)
+size = Vector3(1.2423096, 1.2757568, 0.35559082)
+material = SubResource("StandardMaterial3D_w7jjh")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights/Light18"]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0)
 light_energy = 4.92
 light_bake_mode = 1
