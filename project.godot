@@ -17,8 +17,8 @@ config/icon="res://Images/icon.svg"
 
 [display]
 
-window/size/resizable=false
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
