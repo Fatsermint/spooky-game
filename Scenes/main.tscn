@@ -233,7 +233,7 @@ libraries = {
 [node name="Area3D" type="Area3D" parent="DoorFaculty"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorFaculty/Area3D"]
-transform = Transform3D(1.8538635, 0, -1.4210855e-14, 0, 2.1385894, 0, 1.4210855e-14, 0, 2.2145293, 0, 1.1130859, 0)
+transform = Transform3D(2.8280077, 0, -2.842171e-14, 0, 2.1385894, 0, -2.842171e-14, 0, 2.5582314, 0, 1.113086, 0)
 shape = SubResource("BoxShape3D_ynf5e")
 
 [node name="Label" type="Label" parent="."]

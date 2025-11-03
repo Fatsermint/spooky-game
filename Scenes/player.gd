@@ -163,8 +163,10 @@ func _process(delta):
 
 
 func _on_door(body: Node3D) -> void:
+	print("TOIMII")
 	if onGame == true:
-		if complete == true:
+		print("2")
+		if complete == true or keys == keysNeeded:
 			print("you won")
 			
 			if not label.text == "You Won!":
@@ -172,6 +174,10 @@ func _on_door(body: Node3D) -> void:
 				animation.play("text")
 				music.stop()
 				onGame = false
+				$"../YouLost".visible = true
+				win.emit()
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				
 func _on_starting_menu_play() -> void:
 	onGame = true
 	music.play()

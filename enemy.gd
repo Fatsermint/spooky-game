@@ -39,20 +39,22 @@ func _physics_process(delta: float) -> void:
 					if rayCast.get_collider() == player:
 						animationTree.set("parameters/conditions/WALK", true)
 			"WALK":
-				velocity = Vector3.ZERO
-				navigationAgent.set_target_position(player.global_position)
-				var next_nav_point = navigationAgent.get_next_path_position()
-				velocity = (next_nav_point - global_position).normalized() * SPEED 
-				animationTree.set("parameters/conditions/ATK", target_in_range())
-				look_at(Vector3(next_nav_point.x, global_position.y, next_nav_point.z), Vector3.UP)
-				if target_in_range():
-					animationTree.set("parameters/conditions/ATK", true)
-				else:
-					animationTree.set("parameters/conditions/WALK", true)
-					move_and_slide()
+				if onGame == true:
+					velocity = Vector3.ZERO
+					navigationAgent.set_target_position(player.global_position)
+					var next_nav_point = navigationAgent.get_next_path_position()
+					velocity = (next_nav_point - global_position).normalized() * SPEED 
+					animationTree.set("parameters/conditions/ATK", target_in_range())
+					look_at(Vector3(next_nav_point.x, global_position.y, next_nav_point.z), Vector3.UP)
+					if target_in_range():
+						animationTree.set("parameters/conditions/ATK", true)
+					else:
+						animationTree.set("parameters/conditions/WALK", true)
+						move_and_slide()
 			"ATK":
-				animationTree.set("parameters/conditions/WALK", !target_in_range())
-				look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
+				if onGame == true:
+					animationTree.set("parameters/conditions/WALK", !target_in_range())
+					look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
 			"DEAD":
 				pass
 			"HIT":
@@ -63,11 +65,12 @@ func _physics_process(delta: float) -> void:
 var dir
 func hit_player():
 	if onGame == true:
-
 		if target_in_range():
-			jumpscare.visible = true
-			jumpscare.play()
-			cursor.visible = false
+			if onGame == true:
+				jumpscare.visible = true
+				if onGame == true:
+					jumpscare.play()
+				cursor.visible = false
 func target_in_range():
 	return global_position.distance_to(player.global_position) < ATTACK_RANGE
 	

@@ -2,6 +2,7 @@ extends Control
 
 @onready var label: Label = $TextureRect/Label
 @onready var labelmode: Label = $TextureRect3/Label
+@onready var you_lost: Control = self
 
 @onready var tryAgain: Label = $TextureRect2/Label
 @onready var backToMainMenu: Label = $TextureRect3/Label
@@ -17,10 +18,12 @@ func _on_button_pressed() -> void:
 func _on_mainMenu_button_pressed() -> void:
 	Mainmenu.emit()
 	label.text = "You lost!"
+	you_lost.visible = false
 
 
 func _on_player_win() -> void:
 	label.text = "You won!"
+	you_lost.visible = true
 
 
 func _on_starting_menu_easy() -> void:
