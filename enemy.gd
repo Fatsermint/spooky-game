@@ -83,7 +83,8 @@ func _on_video_stream_player_finished() -> void:
 	you_lost.visible = true
 	onGame = false
 	infoLabel.visible = false
-	
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func _on_starting_menu_play() -> void:
 	onGame = true

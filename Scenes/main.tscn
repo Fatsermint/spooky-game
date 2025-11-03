@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://5j8rpmfohre3"]
+[gd_scene load_steps=23 format=3 uid="uid://5j8rpmfohre3"]
 
 [ext_resource type="PackedScene" uid="uid://gkx6eyn8xf7l" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dhlg0r3eh516c" path="res://Scenes/map.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b3trnpvlm66br" path="res://Scenes/enemy.tscn" id="3_8gbba"]
 [ext_resource type="VideoStream" uid="uid://d0rj8q4rmlbdm" path="res://1031.ogv" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://ckeciqgab8ee7" path="res://Scenes/node_2d.gd" id="4_jkdf5"]
 [ext_resource type="Texture2D" uid="uid://cl26gx7jbl20n" path="res://Assets/Cursor (2).png" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://drawa5s34cyia" path="res://key_small1.png" id="6_6bp64"]
 [ext_resource type="FontFile" uid="uid://dlnmeytfjcqhk" path="res://Creepster-Regular.ttf" id="7_344ge"]
@@ -167,19 +168,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 transform = Transform3D(-0.11840401, 0, 0.9929655, 0, 1, 0, -0.9929655, 0, -0.11840401, 8.350735, -0.07123411, -4.0481796)
 player_path = NodePath("../../Player")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_jkdf5")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Node2D"]
-visible = false
-offset_right = 1080.0
-offset_bottom = 1080.0
-scale = Vector2(1.065, 0.6)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 stream = ExtResource("4_jjvhh")
 speed_scale = 2.0
 expand = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -196,6 +201,7 @@ size_flags_vertical = 4
 texture = ExtResource("5_kry3j")
 
 [node name="Keys" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -209,6 +215,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_6bp64")
 
 [node name="KeysCount" type="Label" parent="."]
+visible = false
 texture_filter = 1
 anchors_preset = 2
 anchor_top = 1.0
