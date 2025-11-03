@@ -196,7 +196,6 @@ size_flags_vertical = 4
 texture = ExtResource("5_kry3j")
 
 [node name="Keys" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -210,12 +209,15 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_6bp64")
 
 [node name="KeysCount" type="Label" parent="."]
-visible = false
 texture_filter = 1
-offset_left = 152.0
-offset_top = 461.0
-offset_right = 298.0
-offset_bottom = 621.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = -183.0
+offset_right = 295.0
+offset_bottom = -19.0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.6, 0, 0, 1)
 theme_override_constants/outline_size = 28
 theme_override_fonts/font = ExtResource("7_344ge")
