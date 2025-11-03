@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dde4ge01jqy5a"]
+[gd_scene load_steps=8 format=3 uid="uid://dde4ge01jqy5a"]
 
 [ext_resource type="Script" uid="uid://e43ystq41xkl" path="res://starting_menu.gd" id="1_ievhk"]
 [ext_resource type="Texture2D" uid="uid://d0n5p2ri5e7v8" path="res://Button_Zombie.png" id="2_2bgwj"]
@@ -6,12 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://bh8mcm61qnl0o" path="res://Button_Flesh.png" id="4_mjxvy"]
 [ext_resource type="Texture2D" uid="uid://c7muj60j6akpm" path="res://Button_Backbone.png" id="5_3vvgq"]
 [ext_resource type="Texture2D" uid="uid://p03lwm6pakul" path="res://Gauge_Stomach_Empty.png" id="6_2bgwj"]
+[ext_resource type="Texture2D" uid="uid://ddu1xvmu011fj" path="res://addons/FreeHorrorUi (1).png" id="7_0pu32"]
 
 [node name="Starting Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 20.0
+offset_right = 1.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ievhk")
@@ -37,10 +42,10 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 126.0
 theme_override_colors/font_color = Color(0.73, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("3_0pu32")
 theme_override_font_sizes/font_size = 111
-text = "Turorial"
+text = "Tutorial"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -92,7 +97,7 @@ offset_top = -2.0
 offset_right = 640.0
 offset_bottom = 124.0
 theme_override_colors/font_color = Color(0.77, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("3_0pu32")
 theme_override_font_sizes/font_size = 111
 text = "Play"
@@ -147,10 +152,10 @@ offset_top = 20.0
 offset_right = 637.0
 offset_bottom = 151.0
 theme_override_colors/font_color = Color(0.73, 0, 0, 1)
-theme_override_constants/outline_size = 16
+theme_override_constants/outline_size = 17
 theme_override_fonts/font = ExtResource("3_0pu32")
 theme_override_font_sizes/font_size = 90
-text = "VERY cool game"
+text = "Spooky game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -279,8 +284,104 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect5" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 180.00002
+offset_right = 70.0
+offset_bottom = 259.00003
+scale = Vector2(6, 6)
+texture = ExtResource("7_0pu32")
+
+[node name="Label4" type="Label" parent="TextureRect5"]
+layout_mode = 0
+offset_left = 10.5
+offset_top = 8.999998
+offset_right = 251.5
+offset_bottom = 84.0
+scale = Vector2(0.181137, 0.21673666)
+theme_override_colors/font_color = Color(0.47200012, 0.27999997, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 48
+text = "How to play?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="TextureRect5"]
+layout_mode = 0
+offset_left = 10.333333
+offset_top = 32.166668
+offset_right = 251.33333
+offset_bottom = 107.16667
+scale = Vector2(0.181137, 0.21673666)
+theme_override_colors/font_color = Color(1, 0.19999999, 0.19999999, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 36
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="TextureRect5"]
+layout_mode = 0
+offset_left = 10.166667
+offset_top = 22.833332
+offset_right = 638.1667
+offset_bottom = 79.83333
+scale = Vector2(0.07196337, 0.07329941)
+theme_override_colors/font_color = Color(0.44457006, 0.2263, 0.73, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 48
+text = "run away from zombies and collect
+keys to escape backrooms."
+
+[node name="Label6" type="Label" parent="TextureRect5"]
+layout_mode = 0
+offset_left = 10.166667
+offset_top = 46.0
+offset_right = 674.1667
+offset_bottom = 163.0
+scale = Vector2(0.07196337, 0.07329941)
+theme_override_colors/font_color = Color(0.56, 0.2072, 0.21307991, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("3_0pu32")
+theme_override_font_sizes/font_size = 48
+text = "Move around with wasd
+rotate head with mouse
+collect keys with left click"
+
+[node name="Control" type="Control" parent="TextureRect5"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="TextureRect5"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 57.333336
+offset_top = 0.9999975
+offset_right = 65.333336
+offset_bottom = 8.999997
+
+[node name="Label" type="Label" parent="TextureRect5"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 60.0
+offset_top = 1.8333308
+offset_right = 148.0
+offset_bottom = 220.83333
+scale = Vector2(0.03, 0.022)
+theme_override_font_sizes/font_size = 160
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="TextureRect2/Button" to="." method="_on_tutibutton_pressed"]
 [connection signal="pressed" from="TextureRect3/Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="TextureRect/Easy/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureRect/Normal/Button" to="." method="_on_normal_button_pressed"]
 [connection signal="pressed" from="TextureRect/Hard/Button" to="." method="_on_hard_button_pressed"]
+[connection signal="pressed" from="TextureRect5/Button" to="." method="_on_exit_button_pressed"]

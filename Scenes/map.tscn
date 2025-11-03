@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dhlg0r3eh516c"]
+[gd_scene load_steps=25 format=4 uid="uid://dhlg0r3eh516c"]
 
 [ext_resource type="Material" uid="uid://bdui5o1rsblm" path="res://Assets/Wall_Mat.tres" id="1_ci6au"]
 [ext_resource type="Texture2D" uid="uid://ckrja6bchxxsh" path="res://Assets/BASE COLOR_PaintedWall.png" id="2_26yhd"]
@@ -27,8 +27,23 @@ albedo_texture = ExtResource("2_26yhd")
 emission_enabled = true
 emission = Color(0.38509774, 0.38437515, 0.16303724, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olcgw"]
+albedo_texture = ExtResource("5_q0mm3")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_myvm1"]
 size = Vector3(0.034301758, 0.947377, 0.19355392)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlo4w"]
+albedo_texture = ExtResource("5_q0mm3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6lx1"]
+albedo_texture = ExtResource("5_q0mm3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qtum"]
+albedo_texture = ExtResource("5_q0mm3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ie368"]
+albedo_texture = ExtResource("5_q0mm3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q3n4"]
 albedo_texture = ExtResource("5_q0mm3")
@@ -518,6 +533,7 @@ spot_angle_attenuation = 6.276668
 
 [node name="Props_Key4" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
 transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 9.216358, 0.64558506, -8.180342)
+material_override = SubResource("StandardMaterial3D_olcgw")
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key4"]
@@ -539,6 +555,7 @@ shape = SubResource("BoxShape3D_myvm1")
 
 [node name="Props_Key7" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
 transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 14.950772, 0.64558506, 17.672907)
+material_override = SubResource("StandardMaterial3D_dlo4w")
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key7"]
@@ -560,6 +577,7 @@ shape = SubResource("BoxShape3D_myvm1")
 
 [node name="Props_Key8" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
 transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, 2.5834777, 0.64558506, 5.8526416)
+material_override = SubResource("StandardMaterial3D_q6lx1")
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key8"]
@@ -581,6 +599,7 @@ shape = SubResource("BoxShape3D_myvm1")
 
 [node name="Props_Key9" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
 transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, -6.942622, 0.64558506, 7.602111)
+material_override = SubResource("StandardMaterial3D_5qtum")
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key9"]
@@ -602,6 +621,7 @@ shape = SubResource("BoxShape3D_myvm1")
 
 [node name="Props_Key10" parent="Node3D" groups=["keys"] instance=ExtResource("4_myvm1")]
 transform = Transform3D(10, 0, 0, 0, 10.000001, 0, 0, 0, 10.000001, -18.808172, 0.64558506, -6.414081)
+material_override = SubResource("StandardMaterial3D_ie368")
 surface_material_override/0 = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Props_Key10"]

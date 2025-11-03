@@ -8,7 +8,7 @@ const SENSITIVITY = 0.003
 const WALK_SPEED = 3
 const SPRINT_SPEED = 3
 const JUMP_VELOCITY = 3
-
+signal win
 const  BOB_FREQ = 2
 const BOB_AMP = 0.08
 var t_bob = 0
@@ -81,7 +81,6 @@ func _process(delta):
 				animation.play("text")
 				label.text = "Don't Let That Zombie Get Close To You!"
 		if keys == 1:
-			complete = true
 			if not label.text == "WOW! You Already Found One? Keep Going!":
 				label.text = "WOW! You Already Found One? Keep Going!"
 				animation.play("text")
@@ -149,6 +148,8 @@ func _process(delta):
 				label.text = "Now Head To Door Where You Started From"
 				animation.play("text")
 				complete = true
+				win.emit()
+				$"../YouLost".visible = true
 		if Input.is_action_just_pressed("interract"):
 			print("1")
 			if ray.is_colliding():
@@ -170,7 +171,7 @@ func _on_door(body: Node3D) -> void:
 				label.text = "You Won!"
 				animation.play("text")
 				music.stop()
-
+				onGame = false
 func _on_starting_menu_play() -> void:
 	onGame = true
 	music.play()

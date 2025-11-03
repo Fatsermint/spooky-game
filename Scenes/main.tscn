@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://5j8rpmfohre3"]
+[gd_scene load_steps=22 format=3 uid="uid://5j8rpmfohre3"]
 
 [ext_resource type="PackedScene" uid="uid://gkx6eyn8xf7l" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dhlg0r3eh516c" path="res://Scenes/map.tscn" id="2_bo1nx"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://glb28g31kr4u" path="res://1_Menu_Master.ogg" id="10_hptm8"]
 [ext_resource type="AudioStream" uid="uid://dxb8gv0722av3" path="res://sound-effects-eerie-ghost-voice_kemCjJn (1).mp3" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://biiq4jgpap3me" path="res://Scenes/YouLostl.tscn" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://d6qdtqjdb0hr" path="res://Scenes/warning.tscn" id="13_fdnlq"]
 
 [sub_resource type="Environment" id="Environment_8gbba"]
 background_energy_multiplier = 0.01
@@ -167,14 +168,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 transform = Transform3D(-0.11840401, 0, 0.9929655, 0, 1, 0, -0.9929655, 0, -0.11840401, 8.350735, -0.07123411, -4.0481796)
 player_path = NodePath("../../Player")
 
-[node name="Enemy2" parent="NavigationRegion3D" instance=ExtResource("3_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.989634, -0.07123411, -10.895185)
-player_path = NodePath("../../Player")
-
-[node name="Enemy3" parent="NavigationRegion3D" instance=ExtResource("3_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.176381, -0.07123411, 3.8294272)
-player_path = NodePath("../../Player")
-
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Node2D"]
@@ -204,6 +197,7 @@ size_flags_vertical = 4
 texture = ExtResource("5_kry3j")
 
 [node name="Keys" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -217,6 +211,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_6bp64")
 
 [node name="KeysCount" type="Label" parent="."]
+visible = false
 texture_filter = 1
 offset_left = 152.0
 offset_top = 461.0
@@ -289,6 +284,15 @@ autostart = true
 [node name="YouLost" parent="." instance=ExtResource("12_6iyac")]
 visible = false
 
+[node name="TextureRect2" parent="." instance=ExtResource("13_fdnlq")]
+visible = false
+mouse_filter = 0
+
+[node name="Timer" type="Timer" parent="TextureRect2"]
+one_shot = true
+
+[connection signal="win" from="Player" to="NavigationRegion3D/Enemy" method="_on_player_win"]
+[connection signal="win" from="Player" to="YouLost" method="_on_player_win"]
 [connection signal="finished" from="Node2D/VideoStreamPlayer" to="Player" method="_on_video_stream_player_finished"]
 [connection signal="finished" from="Node2D/VideoStreamPlayer" to="NavigationRegion3D/Enemy" method="_on_video_stream_player_finished"]
 [connection signal="body_entered" from="DoorFaculty/Area3D" to="Player" method="_on_door"]
@@ -304,3 +308,4 @@ visible = false
 [connection signal="Mainmenu" from="YouLost" to="Player" method="_on_you_lost_mainmenu"]
 [connection signal="Mainmenu" from="YouLost" to="NavigationRegion3D/Enemy" method="_on_you_lost_mainmenu"]
 [connection signal="TryAgain" from="YouLost" to="Player" method="_on_you_lost_try_again"]
+[connection signal="timeout" from="TextureRect2/Timer" to="Starting Menu" method="_on_timer_timeout"]
